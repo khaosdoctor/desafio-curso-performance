@@ -1,0 +1,34 @@
+version: '3'
+services:
+  api: # Back end da api
+    image: node:9-alpine # Usamos imagem alpine porque é mais rápido para baixar
+    container_name: desafio_api_backend # Nome do container
+    user: "node" # Usuário que o container vai usar (só por causa de problemas de leitura de arquivos)
+    ports: # Vamos utilizar a porta 3000 para servir nossa api
+      - 3000:3000
+    working_dir: /home/node/app # Diretório padrão que a imagem usa para servir os apps
+    volumes:
+      - ./api:/home/node/app # Criamos um volume mapeado para que você possa desenvolver o app alterando os arquivos na pasta api
+    command: "npm start" # Comando de inicio
+    depends_on: # Cria uma dependencia com a database para que ela seja executada primeiro
+      - database
+  database: # Database MySQL
+    image: mysql:5
+    container_name: desafio_api_database
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes" # Criamos um usuário com senha vazia. O usuário é "root" na sua máquina, sem senha
+      MYSQL_DATABASE: "desafio_curso_performance"
+    volumes: # Criamos os volumes
+      - ./.db:/var/lib/mysql # Volume de persistencia que vai guardar os dados
+      - ./db/dump:/docker-entrypoint-initdb.d # Executa o script que vai carregar o dump na primeira execução (isto não funciona se o .db que criamos acima já existir)
+  front: # Front end (servidor simples estático com NGINX)
+    image: nginx:1.13-alpine
+    container_name: desafio_front_end
+    ports: # Vai estar sendo servido em localhost:8080
+      - 8080:80
+    volumes:
+      - ./client:/usr/share/nginx/html # Passamos a pasta client para dentro do NGINX de forma que você possa altera-la sem precisar reiniciar os containers
+    depends_on:
+      - api
