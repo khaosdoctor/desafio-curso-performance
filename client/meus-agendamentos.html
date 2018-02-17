@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Agendamentos de reunião | Meus agendamentos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+    <link rel="stylesheet" href="/css/report.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.0/js/all.js"></script>
+    <script>
+      function doConfirm(e) {
+        if(!window.confirm('Você está prestes a remover este agendamento, continuar?')) {
+          e.preventDefault()
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar is-black" role="navigation" aria-label="main navigation">
+      <!-- Brand -->
+        <div class="navbar-brand">
+          <a class="navbar-item" href="https://bulma.io">
+            <img src="/assets/navbar_logo.png" alt="Bulma: a modern CSS framework based on Flexbox">
+          </a>
+          <span class="navbar-item">Olá [Nome do usuário]</span>
+          <div class="navbar-burger burger" data-target="navItems">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+      <!-- Menu -->
+        <div class="navbar-menu" id="navItems">
+          <div class="navbar-end">
+            <a class="navbar-item" href="agendamentos.html">Novo agendamento</a>
+            <a class="navbar-item" href="#">Logout</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="card schedule-card">
+          <header class="card-header">
+            <span class="card-header-icon" aria-hidden="true">
+              <span class="card-header-icon icon">
+                <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+              </span>
+            </span>
+            <p class="card-header-title">
+              <span>Dia: <u>19/02/2018</u></span>
+            </p>
+          </header>
+          <div class="card-content">
+            <div class="content">
+              Agendamento marcado:
+              <br>
+              <ul>
+                <li>Professor: <strong>Professor 1</strong></li>
+                <li>
+                  Horário: <u>15h00</u>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <footer class="card-footer">
+            <a onclick="doConfirm(event)" href="#" class="card-footer-item delete-btn is-danger">Cancelar agendamento</a>
+          </footer>
+        </div>
+      </section>
+
+      <div class="columns">
+        <section class="section column is-half is-offset-one-quarter" name="message-section">
+          <div class="notification is-info has-text-centered">
+            <p>
+             Você ainda não tem nenhum agendamento, que tal <a href="agendamentos.html">marcar alguns</a>?
+            </p>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="columns">
+      <section class="section column is-full">
+        <div class="has-text-centered">
+          <p>Site desenvolvido por <a target="_blank" href="https://seusite.com.br">Seu Nome aqui</a></p>
+        </div>
+      </section>
+    </footer>
+
+    <script src="js/mobile-menu.js"></script>
+  </body>
+</html>

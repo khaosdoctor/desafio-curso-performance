@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Agendamento de reuniões | Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.0/js/all.js"></script>
+  </head>
+  <body>
+
+
+  <div class="columns">
+    <section class="section column is-12" name="Title">
+      <div class="container has-text-centered">
+        <h1 class="title">
+          Agendamento de reuniões
+        </h1>
+        <p class="subtitle">
+          Agenda para <strong class="has-text-info">Escola Enzolândia</strong>
+        </p>
+      </div>
+    </section>
+  </div>
+
+  <div class="columns">
+    <section class="section column is-one-third is-offset-one-third" name="login-form">
+      <form action="/index.php" method="POST">
+
+        <div class="field">
+          <p class="control has-icons-left has-icons-right ">
+            <input class="input" name="user-login" type="text" placeholder="Usuário"  required>
+            <span class="icon is-small is-left">
+              <i class="fas fa-user"></i>
+            </span>
+          </p>
+        </div>
+
+        <div class="field">
+          <p class="control has-icons-left ">
+            <input class="input" name="user-pass" type="password" placeholder="Senha"  required>
+            <span class="icon is-small is-left">
+              <i class="fas fa-lock"></i>
+            </span>
+          </p>
+        </div>
+
+        <div class="field">
+          <p class="control has-text-centered">
+            <button class="button is-success " type="submit" >
+              Login
+            </button>
+            <button class="button is-light" type="reset" >
+              Limpar
+            </button>
+          </p>
+        </div>
+
+      </form>
+    </section>
+  </div>
+
+  <div class="columns">
+    <section class="section column is-half is-offset-one-quarter" name="message-section">
+      <div class="notification is-danger has-text-centered">
+        <p>
+          <strong>Ops!</strong> Use este balão para exibir mensagens de erro
+        </p>
+      </div>
+    </section>
+  </div>
+
+  <div class="columns">
+    <section class="section column is-half is-offset-one-quarter" name="message-section">
+      <div class="notification is-warning has-text-centered">
+        <p>
+          <strong>Ops!</strong> Use este balão para exibir avisos
+        </p>
+      </div>
+    </section>
+  </div>
+
+  <footer class="columns">
+    <section class="section column is-full">
+      <div class="has-text-centered">
+        <p>Site desenvolvido por <a target="_blank" href="https://seusite.com.br">Seu Nome aqui</a></p>
+      </div>
+    </section>
+  </footer>
+
+  </body>
+</html>

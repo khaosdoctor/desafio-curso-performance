@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Agendamento de reuniões | Agenda</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.0/js/all.js"></script>
+</head>
+<body>
+  <header>
+    <nav class="navbar is-black" role="navigation" aria-label="main navigation">
+    <!-- Brand -->
+      <div class="navbar-brand">
+        <a class="navbar-item" href="https://bulma.io">
+          <img src="/assets/navbar_logo.png" alt="Logo">
+        </a>
+        <span class="navbar-item">Olá [Nome do usuário]</span>
+        <div class="navbar-burger burger" data-target="navItems">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+    <!-- Menu -->
+      <div class="navbar-menu" id="navItems">
+        <div class="navbar-end">
+          <a class="navbar-item" href="meus-agendamentos.html">Minha agenda</a>
+          <a class="navbar-item" href="#">Logout</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="columns">
+    <div class="column section is-one-third is-offset-one-third" name="schedule-form">
+      <form action="/" method="POST">
+        <div class="field">
+          <div class="control has-text-centered">
+            <label for="teachers" class="label">Professores:</label>
+            <div class="select">
+              <select id="teachers" name="teachers">
+                <option value="-1">Selecione um professor</option>
+                <option value="1">Professor 1</option>
+                <option value="2">Professor 2</option>
+                <option value="3">Professor 3</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="control has-text-centered">
+            <label for="schedule" class="label">Horários:</label>
+            <div class="select">
+              <select id="schedule" name="schedule">
+                <option value="-1">Selecione um Horário</option>
+                <optgroup label="19/02/2018">
+                  <option value="2018-02-19 15:00:00">15:00:00</option>
+                  <option value="2018-02-19 15:40:00">15:40:00</option>
+                </optgroup>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="field section">
+          <p class="control has-text-centered">
+            <button class="button is-success" type="submit">Agendar!</button>
+            <button class="button is-danger" type="reset">Limpar</button>
+          </p>
+        </div>
+
+      </form>
+    </div>
+  </main>
+
+  <div class="columns">
+    <section class="section column is-half is-offset-one-quarter" name="message-section">
+      <div class="notification is-danger has-text-centered">
+        <p>
+          <strong>Ops!</strong> Parece que houve um erro ao salvar seu agendamento. Por favor contate nosso suporte.
+        </p>
+      </div>
+
+      <div class="notification is-success has-text-centered">
+        <p>
+          <strong>Tudo certo!</strong> Seu agendamento com o professor [nome do professor] foi marcado com sucesso!
+        </p>
+      </div>
+
+      <div class="notification is-info has-text-centered">
+        <p>
+          O sistema está fechado para novos agendamentos.
+        </p>
+      </div>
+    </section>
+  </div>
+
+  <footer class="columns">
+    <section class="section column is-full">
+      <div class="has-text-centered">
+        <p>Site desenvolvido por <a target="_blank" href="https://seusite.com.br">Seu Nome aqui</a></p>
+      </div>
+    </section>
+  </footer>
+
+</body>
+
+<script src="js/mobile-menu.js"></script>
+<script src="js/index.js"></script>
+</html>
